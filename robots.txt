@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artrudolf.github.io/smart-router/sitemap.xml
