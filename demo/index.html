@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Cashier Interactive Demo</title>
+<meta name="description" content="Interactive demonstration of the Smart Cashier deposit flow. All values are demonstration data.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://artrudolf.github.io/smart-router/demo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Smart Cashier Interactive Demo">
+<meta property="og:description" content="Interactive demonstration of the Smart Cashier deposit flow. All values are demonstration data.">
+<meta property="og:url" content="https://artrudolf.github.io/smart-router/demo/">
+<meta property="og:image" content="https://artrudolf.github.io/smart-router/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080c14; --panel:#0d1320; --panel-2:#111a2c;
+  --line:rgba(148,180,255,.12); --line-2:rgba(148,180,255,.22);
+  --ink:#eef2fb; --mut:#8b97b3; --dim:#5a6479;
+  --blue:#3b82f6; --blue-2:#60a5fa; --green:#34d399; --amber:#fbbf24;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+.demo-banner{background:#1a1206;border-bottom:1px solid rgba(251,191,36,.35);color:#fbd38d;font:500 12px/1.5 Inter;padding:9px 16px;text-align:center}
+.demo-banner b{color:#fbbf24;font-weight:700}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font:700 15px 'Space Grotesk';color:var(--ink);text-decoration:none}
+.back{color:var(--mut);font:500 13px Inter;text-decoration:none}
+.back:hover{color:var(--ink)}
+.stage{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px 64px}
+.card{width:100%;max-width:440px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 26px;position:relative}
+.tag{position:absolute;top:14px;right:14px;font:600 10px/1 Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(251,191,36,.4);border-radius:6px;padding:4px 8px}
+h1{font:700 22px 'Space Grotesk';margin-bottom:6px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:22px}
+.screen{display:none}
+.screen.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.amt{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font:600 15px Inter;padding:13px 0;cursor:pointer;transition:border-color .15s}
+.amt:hover{border-color:var(--blue)}
+.amt.sel{border-color:var(--blue);background:rgba(59,130,246,.12)}
+.custom{width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font:600 16px Inter;padding:13px 14px;margin-bottom:20px}
+.custom:focus{outline:2px solid var(--blue);border-color:transparent}
+.btn{width:100%;background:var(--blue);border:none;border-radius:11px;color:#fff;font:700 15px Inter;padding:15px 0;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--blue-2)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-ghost{background:none;border:1px solid var(--line-2);color:var(--mut);margin-top:10px}
+.btn-ghost:hover{background:var(--panel-2);color:var(--ink)}
+/* analyzing */
+.spin{width:52px;height:52px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--blue);margin:26px auto 22px;animation:rot 0.9s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.steps{list-style:none;font:500 13px/2.3 Inter;color:var(--dim)}
+.steps li{display:flex;gap:10px;align-items:center;transition:color .3s}
+.steps li::before{content:'○';color:var(--dim)}
+.steps li.on{color:var(--mut)}
+.steps li.on::before{content:'●';color:var(--blue)}
+.steps li.done{color:var(--ink)}
+.steps li.done::before{content:'✓';color:var(--green)}
+/* methods */
+.mrow{width:100%;text-align:left;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer;color:var(--ink);position:relative;transition:border-color .15s}
+.mrow:hover{border-color:var(--line-2)}
+.mrow.rec{border-color:rgba(52,211,153,.5)}
+.mrow .nm{font:600 14px Inter;display:flex;align-items:center;gap:8px}
+.rec-badge{font:700 9px Inter;letter-spacing:.09em;color:var(--green);border:1px solid rgba(52,211,153,.45);border-radius:5px;padding:2.5px 7px;text-transform:uppercase}
+.meter{height:5px;background:rgba(148,180,255,.1);border-radius:3px;margin-top:10px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:3px;background:var(--blue)}
+.mrow.rec .meter i{background:var(--green)}
+.mrow .pct{position:absolute;right:16px;top:14px;font:700 14px 'Space Grotesk'}
+.mrow.rec .pct{color:var(--green)}
+.mnote{font:400 11px Inter;color:var(--dim);margin:2px 0 16px}
+/* success */
+.ok-ring{width:64px;height:64px;border-radius:50%;border:3px solid var(--green);display:flex;align-items:center;justify-content:center;margin:18px auto 18px;font-size:28px;color:var(--green);animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.receipt{border:1px solid var(--line);border-radius:12px;margin:18px 0 8px}
+.receipt div{display:flex;justify-content:space-between;font:500 13px Inter;color:var(--mut);padding:10px 14px;border-bottom:1px solid var(--line)}
+.receipt div:last-child{border-bottom:none}
+.receipt b{color:var(--ink);font-weight:600}
+.receipt .g{color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center}
+.stat b{display:block;font:700 17px 'Space Grotesk';color:var(--blue-2)}
+.stat span{font:500 10px Inter;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.fine{font:400 11px/1.6 Inter;color:var(--dim);margin-top:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+@media (max-width:420px){.card{padding:24px 18px}.stats{grid-template-columns:1fr 1fr 1fr;gap:7px}}
+</style>
+</head>
+<body>
+<div class="demo-banner"><b>Demo environment.</b> All values are demonstration data. No real payments are processed.</div>
+<div class="topbar">
+  <a class="brand" href="../">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="5" cy="7" r="2.4" fill="#5a6479"/><circle cx="5" cy="16" r="2.4" fill="#3b82f6"/><circle cx="5" cy="25" r="2.4" fill="#5a6479"/><path d="M8 16 L 19.5 16" stroke="#3b82f6" stroke-width="2.2" stroke-linecap="round"/><circle cx="25" cy="16" r="5.2" stroke="#3b82f6" stroke-width="2"/><path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Smart Cashier
+  </a>
+  <a class="back" href="../">&larr; Back to the website</a>
+</div>
+
+<main class="stage">
+  <div class="card">
+    <span class="tag">Demo data</span>
+
+    <!-- 1: amount -->
+    <section class="screen active" id="s-amount" aria-label="Deposit amount">
+      <h1>Deposit</h1>
+      <p class="sub">Choose an amount. Smart Cashier will evaluate the available routes for this deposit.</p>
+      <div class="amounts" role="group" aria-label="Quick amounts">
+        <button class="amt" data-v="50">$50</button>
+        <button class="amt sel" data-v="120">$120</button>
+        <button class="amt" data-v="500">$500</button>
+      </div>
+      <input class="custom" id="amount" type="number" inputmode="decimal" min="10" step="10" value="120" aria-label="Deposit amount in dollars">
+      <button class="btn" id="go-analyze">Continue</button>
+    </section>
+
+    <!-- 2: analyzing -->
+    <section class="screen" id="s-analyze" aria-label="Evaluating routes" aria-live="polite">
+      <h1>Evaluating routes</h1>
+      <p class="sub">The routing layer is comparing eligible providers for this deposit.</p>
+      <div class="spin" role="img" aria-label="Loading"></div>
+      <ul class="steps">
+        <li id="st1">Checking provider availability</li>
+        <li id="st2">Comparing recent approval performance</li>
+        <li id="st3">Applying operator rules and limits</li>
+        <li id="st4">Ranking eligible routes</li>
+      </ul>
+    </section>
+
+    <!-- 3: methods -->
+    <section class="screen" id="s-methods" aria-label="Select a payment method">
+      <h1>Select a payment method</h1>
+      <p class="sub">Methods are ordered by expected approval for this deposit. <span style="color:var(--amber)">Demo data.</span></p>
+      <button class="mrow rec" data-m="Instant bank transfer">
+        <span class="nm">Instant bank transfer <span class="rec-badge">Recommended</span></span>
+        <span class="pct">94%</span>
+        <span class="meter"><i style="width:94%"></i></span>
+      </button>
+      <button class="mrow" data-m="E-wallet">
+        <span class="nm">E-wallet</span><span class="pct">88%</span>
+        <span class="meter"><i style="width:88%"></i></span>
+      </button>
+      <button class="mrow" data-m="Card">
+        <span class="nm">Card</span><span class="pct">81%</span>
+        <span class="meter"><i style="width:81%"></i></span>
+      </button>
+      <button class="mrow" data-m="Local payment method">
+        <span class="nm">Local payment method</span><span class="pct">76%</span>
+        <span class="meter"><i style="width:76%"></i></span>
+      </button>
+      <p class="mnote">Approval-style percentages are demonstration values, not customer results.</p>
+    </section>
+
+    <!-- 4: success -->
+    <section class="screen" id="s-done" aria-label="Deposit approved">
+      <div class="ok-ring" aria-hidden="true">✓</div>
+      <h1 style="text-align:center">Deposit approved</h1>
+      <p class="sub" style="text-align:center">The deposit was routed to the strongest eligible provider.</p>
+      <div class="receipt">
+        <div><span>Amount</span><b id="r-amount">$120</b></div>
+        <div><span>Method</span><b id="r-method">Instant bank transfer</b></div>
+        <div><span>Selected route</span><b>Provider A</b></div>
+        <div><span>Routing time</span><b>1.8s</b></div>
+        <div><span>Status</span><b class="g">Approved</b></div>
+      </div>
+      <div class="stats" aria-label="Demo statistics">
+        <div class="stat"><b>96.2%</b><span>approval rate</span></div>
+        <div class="stat"><b>1,247</b><span>deposits routed</span></div>
+        <div class="stat"><b>12</b><span>providers</span></div>
+      </div>
+      <p class="fine">Demo data. These values illustrate the interface and are not production results.</p>
+      <button class="btn" id="again" style="margin-top:16px">Run the flow again</button>
+      <a class="btn btn-ghost" href="../" style="display:block;text-align:center;text-decoration:none;line-height:1">Back to the website</a>
+    </section>
+  </div>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var amount = 120;
+  function show(id){
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top:0});
+  }
+  document.querySelectorAll('.amt').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.amt').forEach(function(x){x.classList.remove('sel')});
+      b.classList.add('sel');
+      document.getElementById('amount').value = b.getAttribute('data-v');
+    });
+  });
+  document.getElementById('go-analyze').addEventListener('click',function(){
+    var v = parseFloat(document.getElementById('amount').value);
+    if(isNaN(v) || v < 10){ document.getElementById('amount').focus(); return; }
+    amount = v;
+    show('s-analyze');
+    var steps = ['st1','st2','st3','st4'];
+    steps.forEach(function(id,i){
+      setTimeout(function(){ document.getElementById(id).classList.add('on'); }, 300+i*550);
+      setTimeout(function(){ document.getElementById(id).classList.remove('on'); document.getElementById(id).classList.add('done'); }, 750+i*550);
+    });
+    setTimeout(function(){ show('s-methods'); }, 300+steps.length*550+500);
+  });
+  document.querySelectorAll('.mrow').forEach(function(m){
+    m.addEventListener('click',function(){
+      document.getElementById('r-method').textContent = m.getAttribute('data-m');
+      document.getElementById('r-amount').textContent = '$' + amount.toLocaleString('en-US');
+      show('s-done');
+    });
+  });
+  document.getElementById('again').addEventListener('click',function(){
+    ['st1','st2','st3','st4'].forEach(function(id){
+      var el=document.getElementById(id); el.classList.remove('on','done');
+    });
+    show('s-amount');
+  });
+})();
+</script>
+</body>
+</html>

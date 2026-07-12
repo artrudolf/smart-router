@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Smart Cashier mark">
+  <!-- three transaction nodes -->
+  <circle cx="5" cy="7"  r="2.4" fill="#5c6862"/>
+  <circle cx="5" cy="16" r="2.4" fill="#62d9a6"/>
+  <circle cx="5" cy="25" r="2.4" fill="#5c6862"/>
+  <!-- two secondary routes, interrupted -->
+  <path d="M8 7 C 13 7, 15 12, 18 14" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+  <path d="M8 25 C 13 25, 15 20, 18 18" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+  <!-- active route continuing to approval -->
+  <path d="M8 16 L 19.5 16" stroke="#62d9a6" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- approved destination -->
+  <circle cx="25" cy="16" r="5.2" stroke="#62d9a6" stroke-width="2"/>
+  <path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#62d9a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
