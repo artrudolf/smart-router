@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Smart Cashier Payment Orchestration</title>
+<meta name="description" content="Answers about iGaming payment routing, the controlled pilot, source-code licensing, data protection, and commercial terms.">
+<link rel="canonical" href="https://artrudolf.github.io/smart-router/faq/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Cashier">
+<meta property="og:title" content="FAQ | Smart Cashier Payment Orchestration">
+<meta property="og:description" content="Answers about iGaming payment routing, the controlled pilot, source-code licensing, data protection, and commercial terms.">
+<meta property="og:url" content="https://artrudolf.github.io/smart-router/faq/">
+<meta property="og:image" content="https://artrudolf.github.io/smart-router/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ | Smart Cashier Payment Orchestration">
+<meta name="twitter:description" content="Answers about iGaming payment routing, the controlled pilot, source-code licensing, data protection, and commercial terms.">
+<meta name="twitter:image" content="https://artrudolf.github.io/smart-router/assets/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Smart Cashier", "item": "https://artrudolf.github.io/smart-router/"}, {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://artrudolf.github.io/smart-router/faq/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is Smart Cashier tailored to our payment stack?", "acceptedAnswer": {"@type": "Answer", "text": "The routing scope is defined around your cashier, PSPs, payment methods, markets, historical approval data, decline patterns, routing rules, commercial priorities, and infrastructure requirements."}}, {"@type": "Question", "name": "What data is needed for a pilot?", "acceptedAnswer": {"@type": "Answer", "text": "The exact data set depends on the pilot scope. It may include deposit attempts, approval outcomes, PSP, market, payment method, amount, currency, BIN or issuer segment, decline code, processing time, and existing route. Data access and protection requirements are agreed before analysis begins."}}, {"@type": "Question", "name": "Does the pilot affect live payment traffic?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. A pilot can begin with historical analysis or shadow routing. Limited live traffic is used only when appropriate and agreed with the operator."}}, {"@type": "Question", "name": "How do you measure whether routing is improving?", "acceptedAnswer": {"@type": "Answer", "text": "Success criteria are defined before implementation. They may include approval-rate improvement, recovered eligible deposits, reduced outage exposure, routing accuracy, lower timeout rates, or better performance in selected segments."}}, {"@type": "Question", "name": "What do we receive with the source-code license?", "acceptedAnswer": {"@type": "Answer", "text": "Full source-code access under a perpetual non-exclusive license, internal-use and modification rights, on-premise or private-cloud deployment, documentation, deployment scripts, integration support, architecture review, team training, updates under the agreement, and priority support."}}, {"@type": "Question", "name": "Can Smart Cashier run without vendor access to payment data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Self-hosted deployment is designed so the software can run entirely on your infrastructure, without vendor access to payment data."}}, {"@type": "Question", "name": "Which PSPs can be integrated?", "acceptedAnswer": {"@type": "Answer", "text": "Integration scope is defined around the PSPs, gateways, payment methods, and APIs in the operator's existing stack. The website does not publish an unsupported universal integration list."}}, {"@type": "Question", "name": "Does Smart Cashier replace our PSPs?", "acceptedAnswer": {"@type": "Answer", "text": "No. It routes deposits across the PSPs you already have contracts with. You keep your provider relationships. Smart Cashier is orchestration software, not a payment provider."}}, {"@type": "Question", "name": "What happens after we submit a request?", "acceptedAnswer": {"@type": "Answer", "text": "We reply by email to arrange a short discovery call and a technical review of your payment stack. There is no obligation attached to submitting the form."}}, {"@type": "Question", "name": "What is Smart Cashier?", "acceptedAnswer": {"@type": "Answer", "text": "Smart Cashier is payment orchestration software for iGaming operators. It sits between your cashier and your payment service providers (PSPs) and routes each eligible deposit to the route with the strongest expected outcome, based on recent performance, availability, cost, and your rules."}}, {"@type": "Question", "name": "What is payment orchestration?", "acceptedAnswer": {"@type": "Answer", "text": "Payment orchestration is a control layer that manages how transactions are distributed across multiple PSPs, gateways, and payment methods. Instead of one static route, the orchestration layer selects the best available route for each transaction and moves traffic when conditions change."}}, {"@type": "Question", "name": "Is Smart Cashier a payment service provider?", "acceptedAnswer": {"@type": "Answer", "text": "No. Smart Cashier is orchestration software, not a regulated payment provider. It does not process, acquire, or settle funds itself. Money continues to move through your existing PSPs and acquirers."}}, {"@type": "Question", "name": "What does the public demo show?", "acceptedAnswer": {"@type": "Answer", "text": "The demo shows the deposit experience from the player's point of view: amount selection, route evaluation, payment methods ranked by recent approval performance, a recommended route, and a confirmation. All values in the demo are demonstration data."}}, {"@type": "Question", "name": "Are the demo metrics real customer results?", "acceptedAnswer": {"@type": "Answer", "text": "No. All numbers in the demo (approval rates, deposit counts, provider counts, routing times) are demonstration data used to illustrate the interface. They are not customer results."}}, {"@type": "Question", "name": "What information can a routing decision use?", "acceptedAnswer": {"@type": "Answer", "text": "The routing model can combine historical performance, live provider health, and transaction context: recent approval rates, country, BIN, issuer, bank, currency, amount, payment method, device, time, availability, latency, processing cost, and operator-defined priorities. The exact signals depend on the agreed integration scope and applicable law."}}, {"@type": "Question", "name": "What happens when a PSP becomes unavailable?", "acceptedAnswer": {"@type": "Answer", "text": "Smart Cashier is designed to monitor availability, error rates, latency, and timeouts. When a route crosses an operator-defined threshold, eligible traffic can be moved to an alternative approved route automatically, so an outage does not stop the entire deposit flow."}}, {"@type": "Question", "name": "Does Smart Cashier support cascading?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in a controlled form. For eligible soft declines, a deposit can be retried through another approved route according to operator-defined rules: decline-code eligibility, retry limits, time windows, and provider restrictions. Not every declined payment should be retried."}}, {"@type": "Question", "name": "How do you prevent duplicate charges during retries?", "acceptedAnswer": {"@type": "Answer", "text": "Cascading is designed with duplicate-charge protection: idempotent retry logic, decline-code eligibility checks, retry limits, time windows, and a full retry history for every transaction."}}, {"@type": "Question", "name": "Does Smart Cashier support deposits and withdrawals?", "acceptedAnswer": {"@type": "Answer", "text": "The public offer focuses on deposits. Withdrawal orchestration is not part of the current public offer."}}, {"@type": "Question", "name": "How does the pilot lead to a full deployment?", "acceptedAnswer": {"@type": "Answer", "text": "The pilot validates the routing model on your data through agreed stages: data assessment, historical replay, shadow routing, and, where appropriate, controlled live traffic. After validation, the routing layer can be deployed on your infrastructure under a source-code license."}}, {"@type": "Question", "name": "Does historical replay guarantee live results?", "acceptedAnswer": {"@type": "Answer", "text": "No. Historical replay identifies potential opportunity. It does not guarantee the same result in live traffic, which is why the pilot also includes shadow routing and controlled traffic stages where appropriate."}}, {"@type": "Question", "name": "Is the Self-Hosted license exclusive?", "acceptedAnswer": {"@type": "Answer", "text": "No. The license is non-exclusive. Smart Cashier may be licensed to multiple operators."}}, {"@type": "Question", "name": "Can companies in the same holding use the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Use by additional companies in the same holding requires written agreement. The standard license covers the licensed operator."}}, {"@type": "Question", "name": "Can we resell or sublicense the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Resale, sublicensing, and external commercialization all require written approval. There is no offer to sell the entire Smart Cashier intellectual property."}}, {"@type": "Question", "name": "Can we modify the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The license includes internal-use and modification rights for the licensed operator."}}, {"@type": "Question", "name": "Is there a Cloud option?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, as a secondary option. Cloud has a $0 monthly fee and a usage fee of 0.5% of successful deposit volume routed through Smart Cashier. Details are on the pricing page. The primary commercial path is a controlled pilot followed by a self-hosted source-code deployment."}}, {"@type": "Question", "name": "Who pays for hosting and infrastructure?", "acceptedAnswer": {"@type": "Answer", "text": "The customer pays for hosting, infrastructure, PSP fees, acquiring fees, and third-party services. Software and support terms are documented in the commercial agreement."}}, {"@type": "Question", "name": "Does Smart Cashier handle KYC, AML, acquiring, or gambling licensing?", "acceptedAnswer": {"@type": "Answer", "text": "No. Smart Cashier does not replace a PSP, acquirer, payment institution, KYC provider, AML provider, fraud platform, or the operator's licensing and regulatory responsibilities."}}, {"@type": "Question", "name": "How is customer and payment data protected?", "acceptedAnswer": {"@type": "Answer", "text": "The architecture is designed to minimize data exposure. Self-hosted deployment can run without vendor access to payment data, existing tokenization may be preserved where technically appropriate, and PCI scope is reviewed during technical discovery. Specific measures are documented per deployment."}}, {"@type": "Question", "name": "How quickly can the product be launched?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your cashier, PSP mix, and integration scope. The first step is a discovery call and technical review, after which we can give a realistic scope and timeline. We do not promise a universal integration timeline."}}, {"@type": "Question", "name": "Is the financial calculator a guarantee?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculator estimates a possible commercial opportunity based on the numbers you enter. It does not predict or guarantee actual performance."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Smart Cashier home"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+<circle cx="5" cy="7" r="2.4" fill="#5d6963"/><circle cx="5" cy="16" r="2.4" fill="#62d9a6"/><circle cx="5" cy="25" r="2.4" fill="#5d6963"/>
+<path d="M8 7 C 13 7, 15 12, 18 14" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+<path d="M8 25 C 13 25, 15 20, 18 18" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+<path d="M8 16 L 19.5 16" stroke="#62d9a6" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="25" cy="16" r="5.2" stroke="#62d9a6" stroke-width="2"/>
+<path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#62d9a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="brand-word">Smart Cashier</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../#product">Product</a>
+      <a href="../pilot/">Pilot</a>
+      <a href="../source-code/">Source code</a>
+      <a href="../#use-cases">Use cases</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../pricing/">Pricing</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost btn-sm" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+      <button class="btn btn-primary btn-sm" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <a href="../#product">Product</a>
+    <a href="../pilot/">Pilot</a>
+    <a href="../source-code/">Source code</a>
+    <a href="../#use-cases">Use cases</a>
+    <a href="../faq/">FAQ</a>
+    <a href="../pricing/">Pricing</a>
+  </nav>
+  <div class="menu-ctas">
+    <button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+    <button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+    <a class="btn btn-ghost" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+  </div>
+</div>
+<main id="main">
+
+<section class="landing-hero" aria-labelledby="f-h">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h1 id="f-h">Questions and answers.</h1>
+    <p class="lede">Everything operators ask about routing, the pilot, source-code licensing, data, and commercial terms.</p>
+  </div>
+</section>
+<section aria-label="All questions">
+  <div class="wrap">
+    <div class="faq-list reveal">
+      <details><summary>How is Smart Cashier tailored to our payment stack?</summary><p class="faq-a">The routing scope is defined around your cashier, PSPs, payment methods, markets, historical approval data, decline patterns, routing rules, commercial priorities, and infrastructure requirements.</p></details>
+<details><summary>What data is needed for a pilot?</summary><p class="faq-a">The exact data set depends on the pilot scope. It may include deposit attempts, approval outcomes, PSP, market, payment method, amount, currency, BIN or issuer segment, decline code, processing time, and existing route. Data access and protection requirements are agreed before analysis begins.</p></details>
+<details><summary>Does the pilot affect live payment traffic?</summary><p class="faq-a">Not necessarily. A pilot can begin with historical analysis or shadow routing. Limited live traffic is used only when appropriate and agreed with the operator.</p></details>
+<details><summary>How do you measure whether routing is improving?</summary><p class="faq-a">Success criteria are defined before implementation. They may include approval-rate improvement, recovered eligible deposits, reduced outage exposure, routing accuracy, lower timeout rates, or better performance in selected segments.</p></details>
+<details><summary>What do we receive with the source-code license?</summary><p class="faq-a">Full source-code access under a perpetual non-exclusive license, internal-use and modification rights, on-premise or private-cloud deployment, documentation, deployment scripts, integration support, architecture review, team training, updates under the agreement, and priority support.</p></details>
+<details><summary>Can Smart Cashier run without vendor access to payment data?</summary><p class="faq-a">Yes. Self-hosted deployment is designed so the software can run entirely on your infrastructure, without vendor access to payment data.</p></details>
+<details><summary>Which PSPs can be integrated?</summary><p class="faq-a">Integration scope is defined around the PSPs, gateways, payment methods, and APIs in the operator's existing stack. The website does not publish an unsupported universal integration list.</p></details>
+<details><summary>Does Smart Cashier replace our PSPs?</summary><p class="faq-a">No. It routes deposits across the PSPs you already have contracts with. You keep your provider relationships. Smart Cashier is orchestration software, not a payment provider.</p></details>
+<details><summary>What happens after we submit a request?</summary><p class="faq-a">We reply by email to arrange a short discovery call and a technical review of your payment stack. There is no obligation attached to submitting the form.</p></details>
+<details><summary>What is Smart Cashier?</summary><p class="faq-a">Smart Cashier is payment orchestration software for iGaming operators. It sits between your cashier and your payment service providers (PSPs) and routes each eligible deposit to the route with the strongest expected outcome, based on recent performance, availability, cost, and your rules.</p></details>
+<details><summary>What is payment orchestration?</summary><p class="faq-a">Payment orchestration is a control layer that manages how transactions are distributed across multiple PSPs, gateways, and payment methods. Instead of one static route, the orchestration layer selects the best available route for each transaction and moves traffic when conditions change.</p></details>
+<details><summary>Is Smart Cashier a payment service provider?</summary><p class="faq-a">No. Smart Cashier is orchestration software, not a regulated payment provider. It does not process, acquire, or settle funds itself. Money continues to move through your existing PSPs and acquirers.</p></details>
+<details><summary>What does the public demo show?</summary><p class="faq-a">The demo shows the deposit experience from the player's point of view: amount selection, route evaluation, payment methods ranked by recent approval performance, a recommended route, and a confirmation. All values in the demo are demonstration data.</p></details>
+<details><summary>Are the demo metrics real customer results?</summary><p class="faq-a">No. All numbers in the demo (approval rates, deposit counts, provider counts, routing times) are demonstration data used to illustrate the interface. They are not customer results.</p></details>
+<details><summary>What information can a routing decision use?</summary><p class="faq-a">The routing model can combine historical performance, live provider health, and transaction context: recent approval rates, country, BIN, issuer, bank, currency, amount, payment method, device, time, availability, latency, processing cost, and operator-defined priorities. The exact signals depend on the agreed integration scope and applicable law.</p></details>
+<details><summary>What happens when a PSP becomes unavailable?</summary><p class="faq-a">Smart Cashier is designed to monitor availability, error rates, latency, and timeouts. When a route crosses an operator-defined threshold, eligible traffic can be moved to an alternative approved route automatically, so an outage does not stop the entire deposit flow.</p></details>
+<details><summary>Does Smart Cashier support cascading?</summary><p class="faq-a">Yes, in a controlled form. For eligible soft declines, a deposit can be retried through another approved route according to operator-defined rules: decline-code eligibility, retry limits, time windows, and provider restrictions. Not every declined payment should be retried.</p></details>
+<details><summary>How do you prevent duplicate charges during retries?</summary><p class="faq-a">Cascading is designed with duplicate-charge protection: idempotent retry logic, decline-code eligibility checks, retry limits, time windows, and a full retry history for every transaction.</p></details>
+<details><summary>Does Smart Cashier support deposits and withdrawals?</summary><p class="faq-a">The public offer focuses on deposits. Withdrawal orchestration is not part of the current public offer.</p></details>
+<details><summary>How does the pilot lead to a full deployment?</summary><p class="faq-a">The pilot validates the routing model on your data through agreed stages: data assessment, historical replay, shadow routing, and, where appropriate, controlled live traffic. After validation, the routing layer can be deployed on your infrastructure under a source-code license.</p></details>
+<details><summary>Does historical replay guarantee live results?</summary><p class="faq-a">No. Historical replay identifies potential opportunity. It does not guarantee the same result in live traffic, which is why the pilot also includes shadow routing and controlled traffic stages where appropriate.</p></details>
+<details><summary>Is the Self-Hosted license exclusive?</summary><p class="faq-a">No. The license is non-exclusive. Smart Cashier may be licensed to multiple operators.</p></details>
+<details><summary>Can companies in the same holding use the source code?</summary><p class="faq-a">Use by additional companies in the same holding requires written agreement. The standard license covers the licensed operator.</p></details>
+<details><summary>Can we resell or sublicense the source code?</summary><p class="faq-a">Resale, sublicensing, and external commercialization all require written approval. There is no offer to sell the entire Smart Cashier intellectual property.</p></details>
+<details><summary>Can we modify the source code?</summary><p class="faq-a">Yes. The license includes internal-use and modification rights for the licensed operator.</p></details>
+<details><summary>Is there a Cloud option?</summary><p class="faq-a">Yes, as a secondary option. Cloud has a $0 monthly fee and a usage fee of 0.5% of successful deposit volume routed through Smart Cashier. Details are on the pricing page. The primary commercial path is a controlled pilot followed by a self-hosted source-code deployment.</p></details>
+<details><summary>Who pays for hosting and infrastructure?</summary><p class="faq-a">The customer pays for hosting, infrastructure, PSP fees, acquiring fees, and third-party services. Software and support terms are documented in the commercial agreement.</p></details>
+<details><summary>Does Smart Cashier handle KYC, AML, acquiring, or gambling licensing?</summary><p class="faq-a">No. Smart Cashier does not replace a PSP, acquirer, payment institution, KYC provider, AML provider, fraud platform, or the operator's licensing and regulatory responsibilities.</p></details>
+<details><summary>How is customer and payment data protected?</summary><p class="faq-a">The architecture is designed to minimize data exposure. Self-hosted deployment can run without vendor access to payment data, existing tokenization may be preserved where technically appropriate, and PCI scope is reviewed during technical discovery. Specific measures are documented per deployment.</p></details>
+<details><summary>How quickly can the product be launched?</summary><p class="faq-a">It depends on your cashier, PSP mix, and integration scope. The first step is a discovery call and technical review, after which we can give a realistic scope and timeline. We do not promise a universal integration timeline.</p></details>
+<details><summary>Is the financial calculator a guarantee?</summary><p class="faq-a">No. The calculator estimates a possible commercial opportunity based on the numbers you enter. It does not predict or guarantee actual performance.</p></details>
+
+    </div>
+    <div class="cta-row reveal" style="margin-top:36px">
+      <button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+      <button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="../" aria-label="Smart Cashier home"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+<circle cx="5" cy="7" r="2.4" fill="#5d6963"/><circle cx="5" cy="16" r="2.4" fill="#62d9a6"/><circle cx="5" cy="25" r="2.4" fill="#5d6963"/>
+<path d="M8 7 C 13 7, 15 12, 18 14" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+<path d="M8 25 C 13 25, 15 20, 18 18" stroke="#3a453f" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 3"/>
+<path d="M8 16 L 19.5 16" stroke="#62d9a6" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="25" cy="16" r="5.2" stroke="#62d9a6" stroke-width="2"/>
+<path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#62d9a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span class="brand-word">Smart Cashier</span></a>
+        <p style="margin-top:12px;max-width:34ch">Self-hosted payment orchestration for iGaming deposits.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <nav>
+          <a href="../pilot/">Controlled pilot</a>
+          <a href="../source-code/">Source-code license</a>
+          <a href="../pricing/">Pricing</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../demo/">Demo</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <nav>
+          <a href="../payment-orchestration-igaming/">Payment orchestration for iGaming</a>
+          <a href="../payment-routing-online-casinos/">Payment routing for online casinos</a>
+          <a href="../payment-orchestration-sportsbooks/">Payment orchestration for sportsbooks</a>
+          <a href="../igaming-psp-cascading/">iGaming PSP cascading</a>
+          <a href="../self-hosted-payment-routing/">Self-hosted payment routing</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <nav>
+          <a href="../privacy/">Privacy Policy</a>
+          <a href="../terms/">Terms of Use</a>
+          <a href="../cookies/">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-legal">
+      &copy; 2026 ALGORITMO REGENTE - LDA. All rights reserved.<br>
+      Smart Cashier is payment orchestration software. It is not a payment service provider, acquirer, or licensed payment institution, and it does not replace the operator's licensing, KYC, AML, or fraud obligations.
+    </div>
+  </div>
+</footer>
+<div class="modal-backdrop" id="modal-pilot" role="dialog" aria-modal="true" aria-labelledby="modal-pilot-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modal-pilot-title">Start a pilot</h2>
+      <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
+    </div>
+    <p class="modal-sub">A controlled validation of the routing model, scoped around your payment data, PSPs, and markets.</p>
+    <form data-sc-form="pilot" data-success="Thank you. We received your pilot request. The next step is a short discovery call to review your PSP stack, available payment data, and the most realistic validation scope." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Pilot Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="Request type" value="Pilot">
+<input type="hidden" name="Summary" value="The visitor is interested in a controlled Smart Cashier payment-routing pilot.">
+      <input type="hidden" name="Submission timestamp" value="">
+<input type="hidden" name="Source page" value="">
+<input type="hidden" name="Page URL" value="">
+<input type="hidden" name="UTM source" value="">
+<input type="hidden" name="UTM medium" value="">
+<input type="hidden" name="UTM campaign" value="">
+<input type="hidden" name="UTM content" value="">
+<input type="hidden" name="UTM term" value="">
+<input type="hidden" name="Browser locale" value="">
+<input type="hidden" name="Browser timezone" value="">
+<input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
+      <div class="form-field" data-required>
+  <label for="mp-email">Work email</label>
+  <input id="mp-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <span class="err">Enter a valid work email.</span>
+</div><div class="form-field" data-required>
+  <label for="mp-company">Company</label>
+  <input id="mp-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mp-role">Role</label>
+  <input id="mp-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="mp-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="mp-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-country">Country <span class="opt">(optional)</span></label>
+  <input id="mp-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-psps">Current number of PSPs <span class="opt">(optional)</span></label>
+  <input id="mp-psps" name="Current number of PSPs" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-failed">Approx. monthly failed deposit volume <span class="opt">(optional)</span></label>
+  <input id="mp-failed" name="Approximate monthly failed deposit volume" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="mp-message" name="Message"></textarea>
+  
+</div>
+      <div class="consent">
+        <input type="checkbox" id="modal-pilot-consent">
+        <label for="modal-pilot-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send pilot request</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div><div class="modal-backdrop" id="modal-sourcecode" role="dialog" aria-modal="true" aria-labelledby="modal-sourcecode-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modal-sourcecode-title">Discuss source-code licensing</h2>
+      <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
+    </div>
+    <p class="modal-sub">Full source-code access under a perpetual non-exclusive license, deployed on infrastructure you control.</p>
+    <form data-sc-form="source_code" data-success="Thank you. We received your source-code licensing request. The next step is an architecture and deployment discussion covering infrastructure, integrations, licensing scope, and support requirements." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Source-Code Licensing Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="Request type" value="Source-code license">
+<input type="hidden" name="Summary" value="The visitor is interested in a Smart Cashier self-hosted source-code license.">
+      <input type="hidden" name="Submission timestamp" value="">
+<input type="hidden" name="Source page" value="">
+<input type="hidden" name="Page URL" value="">
+<input type="hidden" name="UTM source" value="">
+<input type="hidden" name="UTM medium" value="">
+<input type="hidden" name="UTM campaign" value="">
+<input type="hidden" name="UTM content" value="">
+<input type="hidden" name="UTM term" value="">
+<input type="hidden" name="Browser locale" value="">
+<input type="hidden" name="Browser timezone" value="">
+<input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
+      <div class="form-field" data-required>
+  <label for="ms-email">Work email</label>
+  <input id="ms-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <span class="err">Enter a valid work email.</span>
+</div><div class="form-field" data-required>
+  <label for="ms-company">Company</label>
+  <input id="ms-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="ms-role">Role</label>
+  <input id="ms-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="ms-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="ms-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-country">Country <span class="opt">(optional)</span></label>
+  <input id="ms-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-deploy">Preferred deployment <span class="opt">(optional)</span></label>
+  <select id="ms-deploy" name="Preferred deployment"><option value="">Select...</option><option value="On-premise">On-premise</option><option value="Private cloud">Private cloud</option><option value="Public cloud in our account">Public cloud in our account</option><option value="Not decided">Not decided</option></select>
+  
+</div><div class="form-field">
+  <label for="ms-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="ms-message" name="Message"></textarea>
+  
+</div>
+      <div class="consent">
+        <input type="checkbox" id="modal-sourcecode-consent">
+        <label for="modal-sourcecode-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send licensing request</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div><div class="modal-backdrop" id="modal-walkthrough" role="dialog" aria-modal="true" aria-labelledby="modal-walkthrough-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modal-walkthrough-title">Request an operator walkthrough</h2>
+      <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
+    </div>
+    <p class="modal-sub">A guided look at the operator-side routing flow: provider health, routing decisions, and controls.</p>
+    <form data-sc-form="operator_walkthrough" data-success="Thank you. We received your walkthrough request. We will contact you to schedule an operator-side walkthrough of the routing flow." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Operator Walkthrough Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="Request type" value="Operator walkthrough">
+<input type="hidden" name="Summary" value="The visitor requested an operator-side walkthrough of the Smart Cashier routing flow.">
+      <input type="hidden" name="Submission timestamp" value="">
+<input type="hidden" name="Source page" value="">
+<input type="hidden" name="Page URL" value="">
+<input type="hidden" name="UTM source" value="">
+<input type="hidden" name="UTM medium" value="">
+<input type="hidden" name="UTM campaign" value="">
+<input type="hidden" name="UTM content" value="">
+<input type="hidden" name="UTM term" value="">
+<input type="hidden" name="Browser locale" value="">
+<input type="hidden" name="Browser timezone" value="">
+<input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
+      <div class="form-field" data-required>
+  <label for="mw-email">Work email</label>
+  <input id="mw-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <span class="err">Enter a valid work email.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-company">Company</label>
+  <input id="mw-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-role">Role</label>
+  <input id="mw-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div>
+      <div class="consent">
+        <input type="checkbox" id="modal-walkthrough-consent">
+        <label for="modal-walkthrough-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Request a walkthrough</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<div class="cookie-notice" role="region" aria-label="Cookie notice">
+  <span>This site currently uses no analytics or advertising cookies. We only store your cookie-notice preference in your browser.</span>
+  <button class="btn btn-outline btn-sm" type="button">Got it</button>
+</div>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,43 +1,18 @@
-# PRODUCT.md — Smart Cashier
+# Smart Cashier — product notes for the site
 
-## What it is
-Payment orchestration for iGaming. A provider-independent routing layer between the operator's
-cashier and its PSPs, gateways, acquirers, and payment methods. The main product is the routing
-engine; an optional cashier UI is available per scope.
+## Offer architecture (v2)
+1. Controlled pilot (custom scope): data assessment, historical replay, shadow routing, controlled traffic. Success criteria agreed up front. Historical replay identifies opportunity; it does not guarantee live results.
+2. Self-hosted source-code license (custom quote): perpetual, non-exclusive, internal-use and modification rights. Holding use / resale / sublicensing require written approval. Not an IP sale.
+3. Cloud (secondary): $0 monthly, 0.5% of successful routed deposit volume.
 
-## Positioning
-Primary: Turn more deposit attempts into approved payments.
-Support: routes each eligible deposit to the provider most likely to approve it, shifts traffic
-around provider failures, one control layer across PSPs. Do not lead with AI.
+## Qualification
+Operators with multiple PSPs and roughly $100k+ in failed deposit volume per month.
 
-## Focus
-Deposits only. Withdrawals are not part of the public offer.
+## Key claims discipline
+- No guaranteed uplift, no customer results, no testimonials, no PSP lists, no certifications (PCI/SOC2/ISO) claims.
+- Recovered deposits are never called profit. Calculator walks volume -> GGR -> costs -> contribution before fees.
+- No time-sensitive maturity statements; implementation scope is customer-specific and confirmed during discovery.
+- Demo values are demonstration data. Routing is explained via success rate for the last 60 minutes.
 
-## Maturity (public truth)
-Working product demo; routing concept and interface; engine architecture; API/SDK/cashier UI
-components or planned deliverables. No publicly claimable production PSP integrations, no named
-PSP lists, no production-volume claims. Use "designed to", "can be configured to",
-"implemented around the operator's payment stack".
-
-## Commercial models (all USD)
-Cloud: $0 monthly fee; 0.5% of successful deposit volume routed through Smart Cashier.
-No setup/integration fee, no minimum commitment, no source-code access.
-Self-Hosted: custom quote; full source code; perpetual non-exclusive license; internal-use and
-modification rights; on-premise/private cloud; can run without vendor access to payment data.
-Holding use / resale / sublicensing require written agreement or approval. Never use: pilot,
-Enterprise, Choose a plan, Buy the company.
-
-## CTAs (exact)
-Get started (Cloud form) · Get a quote (Self-Hosted form) · View the demo (email gate,
-then opens /demo/ in a new tab).
-
-## Target customers
-Mid-sized iGaming operators (multiple PSPs, roughly $100k+ failed deposits monthly);
-white-label platforms; aggregators and PSPs; holdings. Decision makers: CEO, Founder,
-Head of Payments, Head of Product, CTO. Geography: Cyprus, Malta, Portugal, UAE, wider Europe;
-site remains global.
-
-## Claims policy
-No fake testimonials, clients, logos, case studies, PSP lists, or guaranteed uplift.
-Demo values (96.2%, 1,247, 12, 1.8s) only with a "Demo data" label. Every financial example
-carries "Illustrative scenario". Additional approved volume is never called profit.
+## Audience
+CEO, founder, Head of Payments, Head of Product, CTO of mid-sized iGaming operators; secondarily platforms, aggregators, PSPs.

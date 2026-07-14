@@ -35,3 +35,11 @@ box fills #080d0b, health dots (mint/amber/red), and mint route strokes.
 Product-UI theme (navy #080c14, blue #3b82f6, Space Grotesk/Inter) is intentionally distinct
 from the marketing site: the site sells the infrastructure, the demo shows the player-facing
 cashier. Every screen carries a Demo data label and an amber demo-environment banner.
+
+
+## v2 additions
+- Qualification strip (mono, thin borders) under the hero.
+- Data-input chips, 5-stage pilot timeline, operator-view SVG panel with routing log.
+- Build-vs-license 3-column grid, architecture flow nodes, team card, dashed secondary Cloud block.
+- Hero animation captions explain the decision: context -> degradation -> route by 60-minute approval -> approved.
+- Demo emphasizes "success rate, last 60 min" on the analyzing, methods, and receipt screens.

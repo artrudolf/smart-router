@@ -39,14 +39,15 @@
 </svg><span class="brand-word">Smart Cashier</span></a>
     <nav class="site-nav" aria-label="Main">
       <a href="/smart-router/#product">Product</a>
+      <a href="/smart-router/pilot/">Pilot</a>
+      <a href="/smart-router/source-code/">Source code</a>
       <a href="/smart-router/#use-cases">Use cases</a>
+      <a href="/smart-router/faq/">FAQ</a>
       <a href="/smart-router/pricing/">Pricing</a>
-      <a href="/smart-router/#faq">FAQ</a>
     </nav>
     <div class="header-actions">
-      <button class="btn btn-ghost btn-sm" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
-      <button class="btn btn-outline btn-sm" data-open-modal="modal-selfhosted">Get a quote</button>
-      <button class="btn btn-primary btn-sm" data-open-modal="modal-cloud">Get started</button>
+      <a class="btn btn-ghost btn-sm" href="/smart-router/demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+      <button class="btn btn-primary btn-sm" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
       <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -56,14 +57,16 @@
 <div class="mobile-menu" id="mobile-menu">
   <nav aria-label="Mobile">
     <a href="/smart-router/#product">Product</a>
+    <a href="/smart-router/pilot/">Pilot</a>
+    <a href="/smart-router/source-code/">Source code</a>
     <a href="/smart-router/#use-cases">Use cases</a>
+    <a href="/smart-router/faq/">FAQ</a>
     <a href="/smart-router/pricing/">Pricing</a>
-    <a href="/smart-router/#faq">FAQ</a>
   </nav>
   <div class="menu-ctas">
-    <button class="btn btn-primary" data-open-modal="modal-cloud">Get started</button>
-    <button class="btn btn-outline" data-open-modal="modal-selfhosted">Get a quote</button>
-    <button class="btn btn-ghost" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
+    <button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+    <button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+    <a class="btn btn-ghost" href="/smart-router/demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
   </div>
 </div>
 <main id="main">
@@ -73,8 +76,10 @@
 <p class="lede" style="margin:18px 0 28px">The address may have changed or never existed. The pages below are healthy routes.</p>
 <div class="related">
 <a href="/smart-router/">Homepage</a>
+<a href="/smart-router/pilot/">The pilot</a>
+<a href="/smart-router/source-code/">Source-code license</a>
 <a href="/smart-router/pricing/">Pricing</a>
-<a href="/smart-router/#faq">FAQ</a>
+<a href="/smart-router/faq/">FAQ</a>
 </div>
 </div></section>
 </main>
@@ -90,15 +95,16 @@
 <circle cx="25" cy="16" r="5.2" stroke="#62d9a6" stroke-width="2"/>
 <path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#62d9a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg><span class="brand-word">Smart Cashier</span></a>
-        <p style="margin-top:12px;max-width:34ch">Payment orchestration for iGaming. Routing engine plus an optional cashier UI.</p>
+        <p style="margin-top:12px;max-width:34ch">Self-hosted payment orchestration for iGaming deposits.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <nav>
-          <a href="/smart-router/#product">Capabilities</a>
-          <a href="/smart-router/#use-cases">Use cases</a>
+          <a href="/smart-router/pilot/">Controlled pilot</a>
+          <a href="/smart-router/source-code/">Source-code license</a>
           <a href="/smart-router/pricing/">Pricing</a>
-          <a href="/smart-router/#faq">FAQ</a>
+          <a href="/smart-router/faq/">FAQ</a>
+          <a href="/smart-router/demo/">Demo</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -126,21 +132,20 @@
     </div>
   </div>
 </footer>
-<div class="modal-backdrop" id="modal-cloud" role="dialog" aria-modal="true" aria-labelledby="modal-cloud-title">
+<div class="modal-backdrop" id="modal-pilot" role="dialog" aria-modal="true" aria-labelledby="modal-pilot-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-cloud-title">Apply for Cloud</h2>
+      <h2 id="modal-pilot-title">Start a pilot</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Cloud has a $0 monthly fee. The usage fee is 0.5% of successful deposit volume routed through Smart Cashier.</p>
-    <form data-sc-form="cloud" data-success="Thank you. We received your Cloud request and will contact you about your payment stack and integration requirements." novalidate>
-      <input type="hidden" name="_subject" value="Smart Cashier Cloud Application">
+    <p class="modal-sub">A controlled validation of the routing model, scoped around your payment data, PSPs, and markets.</p>
+    <form data-sc-form="pilot" data-success="Thank you. We received your pilot request. The next step is a short discovery call to review your PSP stack, available payment data, and the most realistic validation scope." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Pilot Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Cloud">
-<input type="hidden" name="Pricing" value="$0 monthly fee, 0.5% of successful deposit volume">
-<input type="hidden" name="Plan summary" value="The visitor requested the Smart Cashier Cloud plan. Commercial model: $0 monthly fee. 0.5% of successful deposit volume routed through Smart Cashier. No source-code access.">
+      <input type="hidden" name="Request type" value="Pilot">
+<input type="hidden" name="Summary" value="The visitor is interested in a controlled Smart Cashier payment-routing pilot.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -152,56 +157,62 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-cloud-email">Work email</label>
-  <input id="modal-cloud-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="mp-email">Work email</label>
+  <input id="mp-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-cloud-company">Company</label>
-  <input id="modal-cloud-company" name="Company" type="text" autocomplete="organization">
-  <span class="err">Enter your company name.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-cloud-role">Role</label>
-  <input id="modal-cloud-role" name="Role" type="text" autocomplete="organization-title">
-  <span class="err">Enter your role.</span>
-</div>
-<div class="form-field">
-  <label for="modal-cloud-telegram">Telegram <span class="opt">(optional)</span></label>
-  <input id="modal-cloud-telegram" name="Telegram" type="text">
-</div>
-<div class="form-field">
-  <label for="modal-cloud-country">Country <span class="opt">(optional)</span></label>
-  <input id="modal-cloud-country" name="Country" type="text" autocomplete="country-name">
-</div>
-<div class="form-field">
-  <label for="modal-cloud-message">Message <span class="opt">(optional)</span></label>
-  <textarea id="modal-cloud-message" name="Message"></textarea>
+</div><div class="form-field" data-required>
+  <label for="mp-company">Company</label>
+  <input id="mp-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mp-role">Role</label>
+  <input id="mp-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="mp-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="mp-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-country">Country <span class="opt">(optional)</span></label>
+  <input id="mp-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-psps">Current number of PSPs <span class="opt">(optional)</span></label>
+  <input id="mp-psps" name="Current number of PSPs" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-failed">Approx. monthly failed deposit volume <span class="opt">(optional)</span></label>
+  <input id="mp-failed" name="Approximate monthly failed deposit volume" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="mp-message" name="Message"></textarea>
+  
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-cloud-consent">
-        <label for="modal-cloud-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-pilot-consent">
+        <label for="modal-pilot-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Send Cloud application</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send pilot request</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
-</div><div class="modal-backdrop" id="modal-selfhosted" role="dialog" aria-modal="true" aria-labelledby="modal-selfhosted-title">
+</div><div class="modal-backdrop" id="modal-sourcecode" role="dialog" aria-modal="true" aria-labelledby="modal-sourcecode-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-selfhosted-title">Request a Self-Hosted quote</h2>
+      <h2 id="modal-sourcecode-title">Discuss source-code licensing</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Full source-code access, a perpetual non-exclusive license, and deployment on infrastructure you control.</p>
-    <form data-sc-form="selfhosted" data-success="Thank you. We received your Self-Hosted request and will contact you to discuss licensing, deployment, and integration scope." novalidate>
-      <input type="hidden" name="_subject" value="Smart Cashier Self-Hosted Quote Request">
+    <p class="modal-sub">Full source-code access under a perpetual non-exclusive license, deployed on infrastructure you control.</p>
+    <form data-sc-form="source_code" data-success="Thank you. We received your source-code licensing request. The next step is an architecture and deployment discussion covering infrastructure, integrations, licensing scope, and support requirements." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Source-Code Licensing Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Self-Hosted">
-<input type="hidden" name="Interest" value="full source-code license">
-<input type="hidden" name="Plan summary" value="The visitor requested a quote for Smart Cashier Self-Hosted. Interest: Full source-code access. Perpetual non-exclusive license. Self-hosted or on-premise deployment. Full deployment and integration control.">
+      <input type="hidden" name="Request type" value="Source-code license">
+<input type="hidden" name="Summary" value="The visitor is interested in a Smart Cashier self-hosted source-code license.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -213,55 +224,58 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-selfhosted-email">Work email</label>
-  <input id="modal-selfhosted-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="ms-email">Work email</label>
+  <input id="ms-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-selfhosted-company">Company</label>
-  <input id="modal-selfhosted-company" name="Company" type="text" autocomplete="organization">
-  <span class="err">Enter your company name.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-selfhosted-role">Role</label>
-  <input id="modal-selfhosted-role" name="Role" type="text" autocomplete="organization-title">
-  <span class="err">Enter your role.</span>
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-telegram">Telegram <span class="opt">(optional)</span></label>
-  <input id="modal-selfhosted-telegram" name="Telegram" type="text">
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-country">Country <span class="opt">(optional)</span></label>
-  <input id="modal-selfhosted-country" name="Country" type="text" autocomplete="country-name">
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-message">Message <span class="opt">(optional)</span></label>
-  <textarea id="modal-selfhosted-message" name="Message"></textarea>
+</div><div class="form-field" data-required>
+  <label for="ms-company">Company</label>
+  <input id="ms-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="ms-role">Role</label>
+  <input id="ms-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="ms-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="ms-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-country">Country <span class="opt">(optional)</span></label>
+  <input id="ms-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-deploy">Preferred deployment <span class="opt">(optional)</span></label>
+  <select id="ms-deploy" name="Preferred deployment"><option value="">Select...</option><option value="On-premise">On-premise</option><option value="Private cloud">Private cloud</option><option value="Public cloud in our account">Public cloud in our account</option><option value="Not decided">Not decided</option></select>
+  
+</div><div class="form-field">
+  <label for="ms-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="ms-message" name="Message"></textarea>
+  
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-selfhosted-consent">
-        <label for="modal-selfhosted-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-sourcecode-consent">
+        <label for="modal-sourcecode-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Request a quote</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send licensing request</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
-</div><div class="modal-backdrop" id="modal-demo" role="dialog" aria-modal="true" aria-labelledby="modal-demo-title">
+</div><div class="modal-backdrop" id="modal-walkthrough" role="dialog" aria-modal="true" aria-labelledby="modal-walkthrough-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-demo-title">View the demo</h2>
+      <h2 id="modal-walkthrough-title">Request an operator walkthrough</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Enter a work email and we will open the interactive Smart Cashier demo in a new tab. All demo values are demonstration data.</p>
-    <form data-sc-form="demo" data-success="Thank you. The demo is opening in a new tab." novalidate>
-      <input type="hidden" name="_subject" value="demo">
+    <p class="modal-sub">A guided look at the operator-side routing flow: provider health, routing decisions, and controls.</p>
+    <form data-sc-form="operator_walkthrough" data-success="Thank you. We received your walkthrough request. We will contact you to schedule an operator-side walkthrough of the routing flow." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Operator Walkthrough Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Demo">
-<input type="hidden" name="Region inferred from browser locale" value="">
+      <input type="hidden" name="Request type" value="Operator walkthrough">
+<input type="hidden" name="Summary" value="The visitor requested an operator-side walkthrough of the Smart Cashier routing flow.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -273,16 +287,25 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-demo-email">Work email</label>
-  <input id="modal-demo-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="mw-email">Work email</label>
+  <input id="mw-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-company">Company</label>
+  <input id="mw-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-role">Role</label>
+  <input id="mw-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-demo-consent">
-        <label for="modal-demo-consent">I agree that ALGORITMO REGENTE - LDA may process my email to provide demo access and respond to this request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-walkthrough-consent">
+        <label for="modal-walkthrough-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="/smart-router/privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Open the demo</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Request a walkthrough</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>

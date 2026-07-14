@@ -2,9 +2,32 @@
 (function () {
   'use strict';
 
-  var DEMO_URL = 'https://artrudolf.github.io/smart-router/demo/';
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/prodmic@gmail.com';
+  /* ── central configuration ───────────────────────────── */
+  var SC = {
+    DEMO_URL: 'https://artrudolf.github.io/smart-router/demo/',
+    FORM_ENDPOINT: 'https://formsubmit.co/ajax/9e1ca1f15a7783c7356372d979551f91',
+    CALENDAR_URL: '',            /* set a booking URL to show "Book a technical discovery call" after success */
+    ANALYTICS_PROVIDER: 'none'   /* 'none' keeps events in memory only; wire a provider inside scTrack() */
+  };
+  window.SC_CONFIG = SC;
+
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── analytics event layer (no tracking installed) ───── */
+  var eventLog = [];
+  function scTrack(name, props) {
+    var ev = { event: name, props: props || {}, ts: new Date().toISOString() };
+    eventLog.push(ev);
+    /* Integration point: forward ev to Plausible, PostHog, GA4, etc.
+       Do not enable tracking before updating the Cookie Policy and consent flow. */
+  }
+  window.scTrack = scTrack;
+  window.scEvents = eventLog;
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-track]');
+    if (t) scTrack(t.getAttribute('data-track'), { page: location.pathname });
+  });
 
   /* ── mobile menu ─────────────────────────────────────── */
   var menuBtn = document.querySelector('.menu-btn');
@@ -46,6 +69,7 @@
     var first = bd.querySelector('input, button, textarea, select');
     if (first) first.focus();
     bd.addEventListener('keydown', trapFocus);
+    scTrack(id.replace('modal-', '') + '_form_open', { page: location.pathname });
   }
 
   function closeModal(bd) {
@@ -100,18 +124,13 @@
     set('Browser locale', navigator.language || '');
     try { set('Browser timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || ''); } catch (e) {}
     set('Referrer', document.referrer || '');
-    var regionEl = form.querySelector('[name="Region inferred from browser locale"]');
-    if (regionEl) {
-      var loc = navigator.language || '';
-      var region = loc.indexOf('-') > -1 ? loc.split('-')[1].toUpperCase() : '';
-      regionEl.value = region ? region + ' (inferred from browser locale, not a verified location)' : 'not available';
-    }
+    set('Consent', 'given');
   }
 
   function validate(form) {
     var ok = true;
     form.querySelectorAll('.form-field[data-required]').forEach(function (ff) {
-      var input = ff.querySelector('input, textarea');
+      var input = ff.querySelector('input, textarea, select');
       var valid = input.value.trim() !== '';
       if (valid && input.type === 'email') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
       ff.classList.toggle('invalid', !valid);
@@ -136,9 +155,8 @@
 
       var status = form.querySelector('.form-status');
       var btn = form.querySelector('button[type="submit"]');
-      var isDemo = form.getAttribute('data-sc-form') === 'demo';
+      var key = form.getAttribute('data-sc-form');
 
-      /* honeypot */
       var hp = form.querySelector('[name="_honey"]');
       if (hp && hp.value) return;
 
@@ -150,16 +168,6 @@
 
       fillMeta(form);
 
-      /* popup-blocker strategy: open a tab synchronously inside the click,
-         navigate it on success, close it on failure. */
-      var demoTab = null;
-      if (isDemo) { try { demoTab = window.open('', '_blank'); } catch (err) { demoTab = null; } }
-      if (demoTab) {
-        try {
-          demoTab.document.write('<title>Opening the Smart Cashier demo</title><body style="background:#0b100e;color:#97a29a;font-family:monospace;padding:40px">Opening the Smart Cashier demo…</body>');
-        } catch (err) {}
-      }
-
       submitting = true;
       btn.disabled = true;
       var originalLabel = btn.textContent;
@@ -170,7 +178,7 @@
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = v; });
 
-      fetch(FORM_ENDPOINT, {
+      fetch(SC.FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
@@ -180,23 +188,22 @@
         return res.json();
       })
       .then(function () {
+        scTrack(key + '_form_submit', { page: location.pathname });
         status.className = 'form-status ok';
         status.innerHTML = form.getAttribute('data-success');
+        if (SC.CALENDAR_URL) {
+          status.innerHTML += '<br><a class="btn btn-outline btn-sm" style="margin-top:12px" target="_blank" rel="noopener" href="'
+            + SC.CALENDAR_URL + '">Book a technical discovery call</a>';
+        }
         form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea').forEach(function (i) { i.value = ''; });
+        form.querySelectorAll('select').forEach(function (s) { s.selectedIndex = 0; });
         var cb = form.querySelector('input[type="checkbox"]');
         if (cb) cb.checked = false;
-        if (isDemo) {
-          if (demoTab) { demoTab.location.href = DEMO_URL; }
-          else {
-            status.innerHTML += ' Your browser blocked the new tab: <a href="' + DEMO_URL + '" target="_blank" rel="noopener">open the demo here</a>.';
-          }
-        }
         btn.textContent = originalLabel;
         btn.disabled = false;
         submitting = false;
       })
       .catch(function () {
-        if (demoTab) { try { demoTab.close(); } catch (err) {} }
         status.className = 'form-status err';
         status.textContent = 'The request could not be sent. Please check your connection and try again.';
         btn.textContent = originalLabel;
@@ -206,46 +213,58 @@
     });
   });
 
-  /* ── calculator ──────────────────────────────────────── */
+  /* ── opportunity calculator ──────────────────────────── */
   function money(n) {
-    return '$' + Math.round(n).toLocaleString('en-US');
+    var sign = n < 0 ? '-' : '';
+    return sign + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
   }
 
   document.querySelectorAll('[data-calc]').forEach(function (calc) {
-    var attempts = calc.querySelector('[data-in="attempts"]');
-    var rate = calc.querySelector('[data-in="rate"]');
-    var uplift = calc.querySelector('[data-in="uplift"]');
+    var IN = {};
+    ['attempts', 'rate', 'uplift', 'hold', 'bonus', 'paycost', 'fraud'].forEach(function (k) {
+      IN[k] = calc.querySelector('[data-in="' + k + '"]');
+    });
 
     function out(name, val) {
       var el = calc.querySelector('[data-out="' + name + '"]');
       if (el) el.textContent = val;
     }
+    function pct(el) { return parseFloat(el.value) / 100; }
+
+    var tracked = false;
 
     function recalc() {
-      var A = parseFloat(attempts.value);
-      var R = parseFloat(rate.value) / 100;
-      var U = parseFloat(uplift.value) / 100;
-      if (isNaN(A) || isNaN(R) || isNaN(U) || A < 0) return;
+      var A = parseFloat(IN.attempts.value);
+      var R = pct(IN.rate), U = pct(IN.uplift);
+      var hold = pct(IN.hold), bonus = pct(IN.bonus), pay = pct(IN.paycost), fraud = pct(IN.fraud);
+      if ([A, R, U, hold, bonus, pay, fraud].some(isNaN) || A < 0) return;
       R = Math.min(Math.max(R, 0), 1);
       if (R + U > 1) U = 1 - R;
 
       var current = A * R;
-      var next = A * (R + U);
       var additional = A * U;
-      var fee = next * 0.005;
-      var multiple = fee > 0 ? additional / fee : 0;
-      var breakeven = (0.005 * R) / 0.995 * 100;
+      var ggr = additional * hold;
+      var bonusCost = additional * bonus;
+      var payCost = additional * pay;
+      var fraudCost = additional * fraud;
+      var contribution = ggr - bonusCost - payCost - fraudCost;
 
       out('current', money(current));
       out('newrate', ((R + U) * 100).toFixed(1).replace(/\.0$/, '') + '%');
-      out('next', money(next));
       out('additional', money(additional));
-      out('fee', money(fee));
-      out('multiple', multiple > 0 ? '\u2248 ' + multiple.toFixed(1) + 'x' : '\u2014');
-      out('breakeven', '\u2248 ' + breakeven.toFixed(2) + ' pp');
+      out('ggr', money(ggr));
+      out('bonuscost', money(bonusCost));
+      out('paycost', money(payCost));
+      out('fraudcost', money(fraudCost));
+      out('contribution', money(contribution));
     }
 
-    [attempts, rate, uplift].forEach(function (i) { i.addEventListener('input', recalc); });
+    Object.keys(IN).forEach(function (k) {
+      IN[k].addEventListener('input', function () {
+        if (!tracked) { scTrack('calculator_interaction', { page: location.pathname }); tracked = true; }
+        recalc();
+      });
+    });
     recalc();
   });
 
@@ -265,24 +284,14 @@
   var rv = document.getElementById('routing-visual');
   if (rv) {
     var caption = document.getElementById('rv-caption');
-    var routes = {
-      a: rv.querySelector('#route-a'),
-      b: rv.querySelector('#route-b'),
-      c: rv.querySelector('#route-c')
-    };
-    var health = {
-      a: rv.querySelector('#health-a'),
-      b: rv.querySelector('#health-b'),
-      c: rv.querySelector('#health-c')
-    };
-    var badges = {
-      a: rv.querySelector('#badge-a'),
-      b: rv.querySelector('#badge-b'),
-      c: rv.querySelector('#badge-c')
-    };
+    var routes = { a: rv.querySelector('#route-a'), b: rv.querySelector('#route-b'), c: rv.querySelector('#route-c') };
+    var health = { a: rv.querySelector('#health-a'), b: rv.querySelector('#health-b'), c: rv.querySelector('#health-c') };
+    var badges = { a: rv.querySelector('#badge-a'), b: rv.querySelector('#badge-b'), c: rv.querySelector('#badge-c') };
     var dot = rv.querySelector('#rv-dot');
     var approved = rv.querySelector('#rv-approved');
     var signals = rv.querySelectorAll('.rv-signal');
+
+    var FINAL_CAPTION = 'Approved. Selected for <strong>recent approval performance, provider health, and operator rules</strong>.';
 
     function setHealth(key, state, label) {
       health[key].setAttribute('class', 'rv-health ' + state);
@@ -292,20 +301,20 @@
 
     function resetStates() {
       Object.keys(routes).forEach(function (k) { routes[k].setAttribute('class', 'rv-route'); });
-      setHealth('a', 'ok', '97.1%');
-      setHealth('b', 'ok', '93.4%');
-      setHealth('c', 'ok', '91.8%');
+      setHealth('a', 'ok', '91.4%');
+      setHealth('b', 'ok', '84.2%');
+      setHealth('c', 'ok', '88.6%');
       approved.setAttribute('opacity', '0');
       signals.forEach(function (s) { s.classList.remove('lit'); });
     }
 
     function finalState() {
       resetStates();
-      setHealth('b', 'warn', 'degraded');
+      setHealth('c', 'warn', 'degraded');
       routes.a.setAttribute('class', 'rv-route active');
-      routes.b.setAttribute('class', 'rv-route degraded');
+      routes.c.setAttribute('class', 'rv-route degraded');
       approved.setAttribute('opacity', '1');
-      caption.innerHTML = 'Route selected for <strong>recent approval performance and availability</strong>.';
+      caption.innerHTML = FINAL_CAPTION;
     }
 
     if (REDUCED) {
@@ -329,32 +338,32 @@
 
       var loop = function () {
         resetStates();
-        caption.innerHTML = 'Deposit attempt received.';
+        caption.innerHTML = 'Deposit attempt received: $150, card, Spain.';
         var enter = rv.querySelector('#route-in');
         setTimeout(function () {
           moveDot(enter, 700, function () {
-            caption.innerHTML = 'Evaluating eligible routes: country, method, issuer, recent performance.';
+            caption.innerHTML = 'Reading the context: market, method, BIN, approval rate for the last 60 minutes.';
             var i = 0;
             var lightNext = setInterval(function () {
               if (i < signals.length) { signals[i].classList.add('lit'); i++; }
               else clearInterval(lightNext);
-            }, 180);
+            }, 170);
           });
         }, 500);
         setTimeout(function () {
-          setHealth('b', 'warn', 'degraded');
-          routes.b.setAttribute('class', 'rv-route degraded');
-          caption.innerHTML = 'Provider B is degrading: error rate above threshold.';
-        }, 2400);
+          setHealth('c', 'warn', 'degraded');
+          routes.c.setAttribute('class', 'rv-route degraded');
+          caption.innerHTML = 'Provider C is degrading and drops out of the ranking.';
+        }, 2500);
         setTimeout(function () {
           routes.a.setAttribute('class', 'rv-route active');
-          caption.innerHTML = 'Routing to Provider A.';
+          caption.innerHTML = 'Provider A has the strongest recent approval rate. Routing there.';
           moveDot(routes.a, 900, function () {
             approved.setAttribute('opacity', '1');
-            caption.innerHTML = 'Approved. Selected for <strong>recent approval performance and availability</strong>.';
+            caption.innerHTML = FINAL_CAPTION;
           });
-        }, 3600);
-        setTimeout(loop, 7600);
+        }, 3700);
+        setTimeout(loop, 7800);
       };
       loop();
     }

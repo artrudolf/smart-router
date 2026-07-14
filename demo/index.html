@@ -125,7 +125,7 @@ h1{font:700 22px 'Space Grotesk';margin-bottom:6px}
       <div class="spin" role="img" aria-label="Loading"></div>
       <ul class="steps">
         <li id="st1">Checking provider availability</li>
-        <li id="st2">Comparing recent approval performance</li>
+        <li id="st2">Comparing success rates for the last 60 minutes</li>
         <li id="st3">Applying operator rules and limits</li>
         <li id="st4">Ranking eligible routes</li>
       </ul>
@@ -134,7 +134,8 @@ h1{font:700 22px 'Space Grotesk';margin-bottom:6px}
     <!-- 3: methods -->
     <section class="screen" id="s-methods" aria-label="Select a payment method">
       <h1>Select a payment method</h1>
-      <p class="sub">Methods are ordered by expected approval for this deposit. <span style="color:var(--amber)">Demo data.</span></p>
+      <p class="sub">Methods are ranked by success rate over the last 60 minutes for this deposit's segment. <span style="color:var(--amber)">Demo data.</span></p>
+      <p class="mnote" style="margin:0 0 14px">success rate &middot; last 60 min</p>
       <button class="mrow rec" data-m="Instant bank transfer">
         <span class="nm">Instant bank transfer <span class="rec-badge">Recommended</span></span>
         <span class="pct">94%</span>
@@ -159,16 +160,17 @@ h1{font:700 22px 'Space Grotesk';margin-bottom:6px}
     <section class="screen" id="s-done" aria-label="Deposit approved">
       <div class="ok-ring" aria-hidden="true">✓</div>
       <h1 style="text-align:center">Deposit approved</h1>
-      <p class="sub" style="text-align:center">The deposit was routed to the strongest eligible provider.</p>
+      <p class="sub" style="text-align:center">Routed to the provider with the strongest recent success rate.</p>
       <div class="receipt">
         <div><span>Amount</span><b id="r-amount">$120</b></div>
         <div><span>Method</span><b id="r-method">Instant bank transfer</b></div>
         <div><span>Selected route</span><b>Provider A</b></div>
+        <div><span>Why this route</span><b>Highest success rate, last 60 min</b></div>
         <div><span>Routing time</span><b>1.8s</b></div>
         <div><span>Status</span><b class="g">Approved</b></div>
       </div>
       <div class="stats" aria-label="Demo statistics">
-        <div class="stat"><b>96.2%</b><span>approval rate</span></div>
+        <div class="stat"><b>96.2%</b><span>success rate, 60 min</span></div>
         <div class="stat"><b>1,247</b><span>deposits routed</span></div>
         <div class="stat"><b>12</b><span>providers</span></div>
       </div>

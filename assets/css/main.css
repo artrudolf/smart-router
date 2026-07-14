@@ -553,3 +553,142 @@ h3 { font-size: 18px; font-weight: 700; line-height: 1.3; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── v2: repositioning additions ────────────────────────── */
+
+/* qualification strip */
+.qualify-strip {
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 16px 0;
+}
+.qualify-strip .wrap {
+  display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center;
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-2);
+}
+.qualify-strip .q-lead { color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; }
+.qualify-strip b { color: var(--mint); font-weight: 500; }
+
+/* data-input chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.chip {
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 9999px; padding: 7px 14px;
+  background: var(--bg-raise);
+}
+.chip.hl { color: var(--mint); border-color: rgba(98,217,166,0.35); }
+.support-line { margin-top: 22px; font-size: 15px; color: var(--ink); font-weight: 600; }
+
+/* pilot stages */
+.stages { border-top: 1px solid var(--line); }
+.stage {
+  display: grid; grid-template-columns: 120px minmax(0,1.1fr) minmax(0,1fr);
+  gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line);
+}
+.stage .s-num { font-family: var(--font-mono); font-size: 12px; color: var(--mint); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 3px; }
+.stage h3 { font-size: 18px; margin-bottom: 8px; }
+.stage p { font-size: 14px; color: var(--ink-2); max-width: 48ch; }
+.stage .s-note { margin-top: 10px; font-size: 12px; color: var(--ink-3); }
+.stage .s-detail {
+  font-family: var(--font-mono); font-size: 12px; line-height: 2;
+  color: var(--ink-3); align-self: start;
+}
+.stage .s-detail b { color: var(--ink-2); font-weight: 500; }
+
+/* operator view */
+.opview {
+  border: 1px solid var(--line); border-radius: var(--radius-lg);
+  background: var(--bg-raise); padding: 20px; position: relative;
+}
+.opview .demo-tag {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--amber);
+  border: 1px solid rgba(217,164,65,0.35); border-radius: 5px; padding: 2px 8px;
+  background: var(--bg-raise);
+}
+.opview svg { width: 100%; height: auto; }
+.decision {
+  background: var(--bg-raise); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px 20px;
+  font-family: var(--font-mono); font-size: 13px; line-height: 2; color: var(--ink-2);
+}
+.decision .d-head { color: var(--ink-3); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.decision b { color: var(--ink); font-weight: 500; }
+.decision .ok { color: var(--mint); }
+.decision .warn { color: var(--amber); }
+
+/* scope groups */
+.scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+.scope-col { border-top: 2px solid var(--line); padding-top: 16px; margin-bottom: 34px; }
+.scope-col h3 { font-size: 15px; margin-bottom: 10px; }
+.scope-col ul { list-style: none; }
+.scope-col li { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); padding: 4px 0; }
+.scope-note { font-size: 13px; color: var(--ink-3); max-width: 66ch; }
+
+/* build vs license */
+.bvl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.bvl-col {
+  border: 1px solid var(--line); border-radius: var(--radius-lg);
+  background: var(--bg-raise); padding: 26px 24px;
+}
+.bvl-col.hl { border-color: rgba(98,217,166,0.45); }
+.bvl-col .b-k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.bvl-col.hl .b-k { color: var(--mint); }
+.bvl-col h3 { font-size: 17px; margin-bottom: 14px; }
+.bvl-col ul { list-style: none; }
+.bvl-col li { font-size: 13.5px; color: var(--ink-2); padding: 7px 0; border-bottom: 1px solid var(--line-soft); }
+.bvl-col li:last-child { border-bottom: none; }
+
+/* architecture flow */
+.arch-flow {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 13px; color: var(--ink-2);
+  margin: 26px 0 34px;
+}
+.arch-flow .a-node {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-raise); padding: 10px 16px;
+}
+.arch-flow .a-node.hl { border-color: rgba(98,217,166,0.45); color: var(--ink); }
+.arch-flow .a-arrow { color: var(--ink-3); }
+
+/* team */
+.team-card {
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr);
+  gap: 40px; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  background: var(--bg-raise); padding: 34px 32px;
+}
+.team-card .t-name { font-size: 22px; font-weight: 800; }
+.team-card .t-role { font-family: var(--font-mono); font-size: 12px; color: var(--mint); letter-spacing: 0.08em; text-transform: uppercase; margin: 8px 0 0; }
+.team-card ul { list-style: none; margin-top: 4px; }
+.team-card li { font-size: 14px; color: var(--ink-2); padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.team-card li:last-child { border-bottom: none; }
+
+/* secondary cloud option */
+.cloud-secondary {
+  border: 1px dashed var(--line); border-radius: var(--radius-lg);
+  padding: 24px 26px; margin-top: 22px;
+  display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline;
+}
+.cloud-secondary .c-k { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.cloud-secondary p { font-size: 14px; color: var(--ink-2); max-width: 58ch; }
+
+/* calculator: two input columns on wide screens */
+.calc-inputs .calc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.calc-field label { font-size: 12.5px; }
+.calc-group-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-3); margin: 4px 0 14px;
+}
+
+@media (max-width: 1000px) {
+  .stage { grid-template-columns: 1fr; gap: 10px; }
+  .scope-grid { grid-template-columns: 1fr 1fr; }
+  .bvl { grid-template-columns: 1fr; }
+  .team-card { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 640px) {
+  .scope-grid { grid-template-columns: 1fr; }
+  .calc-inputs .calc-cols { grid-template-columns: 1fr; }
+}

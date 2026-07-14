@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment Orchestration for iGaming Explained | Smart Cashier</title>
-<meta name="description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and one integration layer across PSPs.">
+<meta name="description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and a pilot-first path to self-hosting.">
 <link rel="canonical" href="https://artrudolf.github.io/smart-router/payment-orchestration-igaming/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Smart Cashier">
 <meta property="og:title" content="Payment Orchestration for iGaming Explained | Smart Cashier">
-<meta property="og:description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and one integration layer across PSPs.">
+<meta property="og:description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and a pilot-first path to self-hosting.">
 <meta property="og:url" content="https://artrudolf.github.io/smart-router/payment-orchestration-igaming/">
 <meta property="og:image" content="https://artrudolf.github.io/smart-router/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Payment Orchestration for iGaming Explained | Smart Cashier">
-<meta name="twitter:description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and one integration layer across PSPs.">
+<meta name="twitter:description" content="What payment orchestration means for iGaming operators: performance routing, provider health, failover, cascading, and a pilot-first path to self-hosting.">
 <meta name="twitter:image" content="https://artrudolf.github.io/smart-router/assets/img/og-image.png">
 <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Smart Cashier", "item": "https://artrudolf.github.io/smart-router/"}, {"@type": "ListItem", "position": 2, "name": "Payment orchestration for iGaming, explained.", "item": "https://artrudolf.github.io/smart-router/payment-orchestration-igaming/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is payment orchestration only for large operators?", "acceptedAnswer": {"@type": "Answer", "text": "No. The best fit is any operator with multiple PSPs and meaningful failed deposit volume, typically from around $100,000 in failed deposits per month."}}, {"@type": "Question", "name": "Does orchestration require replacing our cashier?", "acceptedAnswer": {"@type": "Answer", "text": "No. The routing engine integrates through an API and SDK. An optional cashier UI is available if you want a ready deposit interface."}}, {"@type": "Question", "name": "What is the first step?", "acceptedAnswer": {"@type": "Answer", "text": "A discovery call and technical review of your payment stack, after which integration scope and timeline can be defined realistically."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is payment orchestration only for large operators?", "acceptedAnswer": {"@type": "Answer", "text": "No. The best fit is any operator with multiple PSPs and meaningful failed deposit volume, typically from around $100,000 in failed deposits per month."}}, {"@type": "Question", "name": "Does orchestration require replacing our cashier?", "acceptedAnswer": {"@type": "Answer", "text": "No. The routing engine integrates through an API and SDK. An optional cashier UI is available if you want a ready deposit interface."}}, {"@type": "Question", "name": "What is the first step?", "acceptedAnswer": {"@type": "Answer", "text": "A discovery call and technical review of your payment stack, followed by a controlled pilot with agreed success criteria."}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -41,14 +41,15 @@
 </svg><span class="brand-word">Smart Cashier</span></a>
     <nav class="site-nav" aria-label="Main">
       <a href="../#product">Product</a>
+      <a href="../pilot/">Pilot</a>
+      <a href="../source-code/">Source code</a>
       <a href="../#use-cases">Use cases</a>
+      <a href="../faq/">FAQ</a>
       <a href="../pricing/">Pricing</a>
-      <a href="../#faq">FAQ</a>
     </nav>
     <div class="header-actions">
-      <button class="btn btn-ghost btn-sm" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
-      <button class="btn btn-outline btn-sm" data-open-modal="modal-selfhosted">Get a quote</button>
-      <button class="btn btn-primary btn-sm" data-open-modal="modal-cloud">Get started</button>
+      <a class="btn btn-ghost btn-sm" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+      <button class="btn btn-primary btn-sm" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
       <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -58,31 +59,33 @@
 <div class="mobile-menu" id="mobile-menu">
   <nav aria-label="Mobile">
     <a href="../#product">Product</a>
+    <a href="../pilot/">Pilot</a>
+    <a href="../source-code/">Source code</a>
     <a href="../#use-cases">Use cases</a>
+    <a href="../faq/">FAQ</a>
     <a href="../pricing/">Pricing</a>
-    <a href="../#faq">FAQ</a>
   </nav>
   <div class="menu-ctas">
-    <button class="btn btn-primary" data-open-modal="modal-cloud">Get started</button>
-    <button class="btn btn-outline" data-open-modal="modal-selfhosted">Get a quote</button>
-    <button class="btn btn-ghost" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
+    <button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+    <button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+    <a class="btn btn-ghost" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
   </div>
 </div>
 <main id="main">
 
 <section class="landing-hero" aria-labelledby="l-h">
   <div class="wrap">
-    <p class="eyebrow">Payment orchestration for iGaming</p>
+    <p class="eyebrow">Self-hosted payment orchestration for iGaming</p>
     <h1 id="l-h">Payment orchestration for iGaming, explained.</h1>
-    <p class="lede">Payment orchestration is a control layer between your cashier and your payment service providers (PSPs). Instead of one static route, an orchestration layer selects the best available route for each deposit and moves traffic when conditions change. Here is what that means in practice for an iGaming operator.</p>
+    <p class="lede">Payment orchestration is a control layer between your cashier and your payment service providers (PSPs). Instead of one static route, it selects the best available route for each deposit and moves traffic when conditions change. Here is what that means in practice.</p>
     <div class="cta-row">
-<button class="btn btn-primary" data-open-modal="modal-cloud">Get started</button>
-<button class="btn btn-outline" data-open-modal="modal-selfhosted">Get a quote</button>
-<button class="btn btn-ghost" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
+<button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+<button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+<a class="btn btn-ghost" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
 </div>
   </div>
 </section>
-<section class="landing-body" aria-label="The building blocks."><div class="wrap reveal"><h2>The building blocks.</h2><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Performance-based routing sends each eligible deposit to the provider with the strongest recent results for that segment. Live health monitoring watches availability, error rates, latency, and timeouts. Automatic failover moves traffic when a route degrades. Controlled cascading retries eligible soft declines through another approved route.</p><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Around the routing engine sit the operational tools: rules, traffic allocation, A/B testing, manual override, audit logs, and analytics that make payment losses measurable instead of hidden inside aggregate decline data.</p></div></section><section class="landing-body" aria-label="What orchestration is not."><div class="wrap reveal"><h2>What orchestration is not.</h2><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">An orchestration layer is not a PSP, an acquirer, or a payment institution, and it does not replace KYC, AML, fraud platforms, or the operator's licensing responsibilities. Money continues to move through your existing providers.</p><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Smart Cashier focuses this model specifically on iGaming deposits, with a straightforward commercial choice: Cloud with a $0 monthly fee and a usage fee of 0.5% of successful deposit volume, or Self-Hosted with full source-code access.</p></div></section>
+<section class="landing-body" aria-label="The building blocks."><div class="wrap reveal"><h2>The building blocks.</h2><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Performance-based routing sends each eligible deposit to the provider with the strongest recent approval rate for that segment. Live health monitoring watches availability, error rates, latency, and timeouts. Automatic failover moves traffic when a route degrades. Controlled cascading retries eligible soft declines through another approved route.</p><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Around the routing engine sit the operational tools: rules, traffic allocation, A/B testing, manual override, audit logs, and analytics that make payment losses measurable instead of hidden inside aggregate decline data.</p></div></section><section class="landing-body" aria-label="What orchestration is not."><div class="wrap reveal"><h2>What orchestration is not.</h2><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">An orchestration layer is not a PSP, an acquirer, or a payment institution, and it does not replace KYC, AML, fraud platforms, or the operator's licensing responsibilities. Money continues to move through your existing providers.</p><p style="color:var(--ink-2);margin-bottom:12px;max-width:64ch">Smart Cashier applies this model specifically to iGaming deposits, with a pilot-first commercial path: validate the routing model on your own payment data, then deploy the full source code on your infrastructure.</p></div></section>
 <section aria-label="Illustrative scenario">
   <div class="wrap reveal">
     <h2>What this can look like in numbers.</h2>
@@ -90,29 +93,29 @@
         Monthly deposit attempts: <b>$2,500,000</b><br>
         Current approval rate: <b>82%</b><br>
         Expected uplift: <b>4 pp</b><br>
-        Additional approved deposit volume: <b>$100,000</b><br>
-        Estimated Cloud fee: <b>$10,750</b></div>
+        Additional approved deposit volume: <b>$100,000</b></div>
     <p style="margin-top:16px;font-size:13px;color:var(--ink-3);max-width:64ch">Illustrative scenario. Additional approved deposit volume is not revenue or profit, and no uplift is guaranteed. Results depend on your traffic, PSP mix, markets, decline reasons, and rules.</p>
   </div>
 </section>
 <section aria-label="Frequently asked questions">
   <div class="wrap reveal">
     <h2>Common questions.</h2>
-    <div class="faq-list" style="margin-top:24px"><details><summary>Is payment orchestration only for large operators?</summary><p class="faq-a">No. The best fit is any operator with multiple PSPs and meaningful failed deposit volume, typically from around $100,000 in failed deposits per month.</p></details><details><summary>Does orchestration require replacing our cashier?</summary><p class="faq-a">No. The routing engine integrates through an API and SDK. An optional cashier UI is available if you want a ready deposit interface.</p></details><details><summary>What is the first step?</summary><p class="faq-a">A discovery call and technical review of your payment stack, after which integration scope and timeline can be defined realistically.</p></details></div>
+    <div class="faq-list" style="margin-top:24px"><details><summary>Is payment orchestration only for large operators?</summary><p class="faq-a">No. The best fit is any operator with multiple PSPs and meaningful failed deposit volume, typically from around $100,000 in failed deposits per month.</p></details><details><summary>Does orchestration require replacing our cashier?</summary><p class="faq-a">No. The routing engine integrates through an API and SDK. An optional cashier UI is available if you want a ready deposit interface.</p></details><details><summary>What is the first step?</summary><p class="faq-a">A discovery call and technical review of your payment stack, followed by a controlled pilot with agreed success criteria.</p></details></div>
   </div>
 </section>
-<section class="final-cta" aria-label="Get started">
+<section class="final-cta" aria-label="Next step">
   <div class="wrap reveal">
-    <h2>Choose the level of control that fits your payment stack.</h2>
-    <p class="lede" style="margin-bottom:26px">Use Cloud with no monthly fee, or license the full source code. See <a href="../pricing/">pricing</a> for the full comparison.</p>
+    <h2>Validate the opportunity. Then own the routing stack.</h2>
+    <p class="lede" style="margin-bottom:26px">Start with a controlled pilot on your payment data, then deploy the full source code on your infrastructure. See <a href="../pricing/">pricing</a> for the commercial options.</p>
     <div class="cta-row">
-<button class="btn btn-primary" data-open-modal="modal-cloud">Get started</button>
-<button class="btn btn-outline" data-open-modal="modal-selfhosted">Get a quote</button>
-<button class="btn btn-ghost" data-open-modal="modal-demo">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5m0 0v5m0-5L9 15M9 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/></svg></button>
+<button class="btn btn-primary" data-open-modal="modal-pilot" data-track="pilot_cta_click">Start a pilot</button>
+<button class="btn btn-outline" data-open-modal="modal-sourcecode" data-track="source_code_cta_click">Discuss source-code licensing</button>
+<a class="btn btn-ghost" href="../demo/" data-track="demo_click">View the demo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
 </div>
     <div class="related" style="margin-top:36px">
-      <a href="../pricing/">Pricing</a>
-      <a href="../payment-routing-online-casinos/">Casino payment routing</a><a href="../payment-orchestration-sportsbooks/">Sportsbook orchestration</a><a href="../self-hosted-payment-routing/">Self-hosted routing</a>
+      <a href="../pilot/">The pilot</a>
+      <a href="../source-code/">Source-code license</a>
+      <a href="../payment-routing-online-casinos/">Casino payment routing</a><a href="../self-hosted-payment-routing/">Self-hosted routing</a>
     </div>
   </div>
 </section>
@@ -130,15 +133,16 @@
 <circle cx="25" cy="16" r="5.2" stroke="#62d9a6" stroke-width="2"/>
 <path d="M22.6 16 l1.7 1.8 3-3.4" stroke="#62d9a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg><span class="brand-word">Smart Cashier</span></a>
-        <p style="margin-top:12px;max-width:34ch">Payment orchestration for iGaming. Routing engine plus an optional cashier UI.</p>
+        <p style="margin-top:12px;max-width:34ch">Self-hosted payment orchestration for iGaming deposits.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <nav>
-          <a href="../#product">Capabilities</a>
-          <a href="../#use-cases">Use cases</a>
+          <a href="../pilot/">Controlled pilot</a>
+          <a href="../source-code/">Source-code license</a>
           <a href="../pricing/">Pricing</a>
-          <a href="../#faq">FAQ</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../demo/">Demo</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -166,21 +170,20 @@
     </div>
   </div>
 </footer>
-<div class="modal-backdrop" id="modal-cloud" role="dialog" aria-modal="true" aria-labelledby="modal-cloud-title">
+<div class="modal-backdrop" id="modal-pilot" role="dialog" aria-modal="true" aria-labelledby="modal-pilot-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-cloud-title">Apply for Cloud</h2>
+      <h2 id="modal-pilot-title">Start a pilot</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Cloud has a $0 monthly fee. The usage fee is 0.5% of successful deposit volume routed through Smart Cashier.</p>
-    <form data-sc-form="cloud" data-success="Thank you. We received your Cloud request and will contact you about your payment stack and integration requirements." novalidate>
-      <input type="hidden" name="_subject" value="Smart Cashier Cloud Application">
+    <p class="modal-sub">A controlled validation of the routing model, scoped around your payment data, PSPs, and markets.</p>
+    <form data-sc-form="pilot" data-success="Thank you. We received your pilot request. The next step is a short discovery call to review your PSP stack, available payment data, and the most realistic validation scope." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Pilot Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Cloud">
-<input type="hidden" name="Pricing" value="$0 monthly fee, 0.5% of successful deposit volume">
-<input type="hidden" name="Plan summary" value="The visitor requested the Smart Cashier Cloud plan. Commercial model: $0 monthly fee. 0.5% of successful deposit volume routed through Smart Cashier. No source-code access.">
+      <input type="hidden" name="Request type" value="Pilot">
+<input type="hidden" name="Summary" value="The visitor is interested in a controlled Smart Cashier payment-routing pilot.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -192,56 +195,62 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-cloud-email">Work email</label>
-  <input id="modal-cloud-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="mp-email">Work email</label>
+  <input id="mp-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-cloud-company">Company</label>
-  <input id="modal-cloud-company" name="Company" type="text" autocomplete="organization">
-  <span class="err">Enter your company name.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-cloud-role">Role</label>
-  <input id="modal-cloud-role" name="Role" type="text" autocomplete="organization-title">
-  <span class="err">Enter your role.</span>
-</div>
-<div class="form-field">
-  <label for="modal-cloud-telegram">Telegram <span class="opt">(optional)</span></label>
-  <input id="modal-cloud-telegram" name="Telegram" type="text">
-</div>
-<div class="form-field">
-  <label for="modal-cloud-country">Country <span class="opt">(optional)</span></label>
-  <input id="modal-cloud-country" name="Country" type="text" autocomplete="country-name">
-</div>
-<div class="form-field">
-  <label for="modal-cloud-message">Message <span class="opt">(optional)</span></label>
-  <textarea id="modal-cloud-message" name="Message"></textarea>
+</div><div class="form-field" data-required>
+  <label for="mp-company">Company</label>
+  <input id="mp-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mp-role">Role</label>
+  <input id="mp-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="mp-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="mp-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-country">Country <span class="opt">(optional)</span></label>
+  <input id="mp-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-psps">Current number of PSPs <span class="opt">(optional)</span></label>
+  <input id="mp-psps" name="Current number of PSPs" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-failed">Approx. monthly failed deposit volume <span class="opt">(optional)</span></label>
+  <input id="mp-failed" name="Approximate monthly failed deposit volume" type="text">
+  
+</div><div class="form-field">
+  <label for="mp-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="mp-message" name="Message"></textarea>
+  
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-cloud-consent">
-        <label for="modal-cloud-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-pilot-consent">
+        <label for="modal-pilot-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Send Cloud application</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send pilot request</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
-</div><div class="modal-backdrop" id="modal-selfhosted" role="dialog" aria-modal="true" aria-labelledby="modal-selfhosted-title">
+</div><div class="modal-backdrop" id="modal-sourcecode" role="dialog" aria-modal="true" aria-labelledby="modal-sourcecode-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-selfhosted-title">Request a Self-Hosted quote</h2>
+      <h2 id="modal-sourcecode-title">Discuss source-code licensing</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Full source-code access, a perpetual non-exclusive license, and deployment on infrastructure you control.</p>
-    <form data-sc-form="selfhosted" data-success="Thank you. We received your Self-Hosted request and will contact you to discuss licensing, deployment, and integration scope." novalidate>
-      <input type="hidden" name="_subject" value="Smart Cashier Self-Hosted Quote Request">
+    <p class="modal-sub">Full source-code access under a perpetual non-exclusive license, deployed on infrastructure you control.</p>
+    <form data-sc-form="source_code" data-success="Thank you. We received your source-code licensing request. The next step is an architecture and deployment discussion covering infrastructure, integrations, licensing scope, and support requirements." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Source-Code Licensing Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Self-Hosted">
-<input type="hidden" name="Interest" value="full source-code license">
-<input type="hidden" name="Plan summary" value="The visitor requested a quote for Smart Cashier Self-Hosted. Interest: Full source-code access. Perpetual non-exclusive license. Self-hosted or on-premise deployment. Full deployment and integration control.">
+      <input type="hidden" name="Request type" value="Source-code license">
+<input type="hidden" name="Summary" value="The visitor is interested in a Smart Cashier self-hosted source-code license.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -253,55 +262,58 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-selfhosted-email">Work email</label>
-  <input id="modal-selfhosted-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="ms-email">Work email</label>
+  <input id="ms-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-selfhosted-company">Company</label>
-  <input id="modal-selfhosted-company" name="Company" type="text" autocomplete="organization">
-  <span class="err">Enter your company name.</span>
-</div>
-<div class="form-field" data-required>
-  <label for="modal-selfhosted-role">Role</label>
-  <input id="modal-selfhosted-role" name="Role" type="text" autocomplete="organization-title">
-  <span class="err">Enter your role.</span>
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-telegram">Telegram <span class="opt">(optional)</span></label>
-  <input id="modal-selfhosted-telegram" name="Telegram" type="text">
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-country">Country <span class="opt">(optional)</span></label>
-  <input id="modal-selfhosted-country" name="Country" type="text" autocomplete="country-name">
-</div>
-<div class="form-field">
-  <label for="modal-selfhosted-message">Message <span class="opt">(optional)</span></label>
-  <textarea id="modal-selfhosted-message" name="Message"></textarea>
+</div><div class="form-field" data-required>
+  <label for="ms-company">Company</label>
+  <input id="ms-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="ms-role">Role</label>
+  <input id="ms-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field">
+  <label for="ms-telegram">Telegram <span class="opt">(optional)</span></label>
+  <input id="ms-telegram" name="Telegram" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-country">Country <span class="opt">(optional)</span></label>
+  <input id="ms-country" name="Country" type="text">
+  
+</div><div class="form-field">
+  <label for="ms-deploy">Preferred deployment <span class="opt">(optional)</span></label>
+  <select id="ms-deploy" name="Preferred deployment"><option value="">Select...</option><option value="On-premise">On-premise</option><option value="Private cloud">Private cloud</option><option value="Public cloud in our account">Public cloud in our account</option><option value="Not decided">Not decided</option></select>
+  
+</div><div class="form-field">
+  <label for="ms-message">Message <span class="opt">(optional)</span></label>
+  <textarea id="ms-message" name="Message"></textarea>
+  
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-selfhosted-consent">
-        <label for="modal-selfhosted-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-sourcecode-consent">
+        <label for="modal-sourcecode-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Request a quote</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send licensing request</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
-</div><div class="modal-backdrop" id="modal-demo" role="dialog" aria-modal="true" aria-labelledby="modal-demo-title">
+</div><div class="modal-backdrop" id="modal-walkthrough" role="dialog" aria-modal="true" aria-labelledby="modal-walkthrough-title">
   <div class="modal">
     <div class="modal-head">
-      <h2 id="modal-demo-title">View the demo</h2>
+      <h2 id="modal-walkthrough-title">Request an operator walkthrough</h2>
       <button class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
     </div>
-    <p class="modal-sub">Enter a work email and we will open the interactive Smart Cashier demo in a new tab. All demo values are demonstration data.</p>
-    <form data-sc-form="demo" data-success="Thank you. The demo is opening in a new tab." novalidate>
-      <input type="hidden" name="_subject" value="demo">
+    <p class="modal-sub">A guided look at the operator-side routing flow: provider health, routing decisions, and controls.</p>
+    <form data-sc-form="operator_walkthrough" data-success="Thank you. We received your walkthrough request. We will contact you to schedule an operator-side walkthrough of the routing flow." novalidate>
+      <input type="hidden" name="_subject" value="Smart Cashier Operator Walkthrough Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-      <input type="hidden" name="Request type" value="Demo">
-<input type="hidden" name="Region inferred from browser locale" value="">
+      <input type="hidden" name="Request type" value="Operator walkthrough">
+<input type="hidden" name="Summary" value="The visitor requested an operator-side walkthrough of the Smart Cashier routing flow.">
       <input type="hidden" name="Submission timestamp" value="">
 <input type="hidden" name="Source page" value="">
 <input type="hidden" name="Page URL" value="">
@@ -313,16 +325,25 @@
 <input type="hidden" name="Browser locale" value="">
 <input type="hidden" name="Browser timezone" value="">
 <input type="hidden" name="Referrer" value="">
+<input type="hidden" name="Consent" value="">
       <div class="form-field" data-required>
-  <label for="modal-demo-email">Work email</label>
-  <input id="modal-demo-email" name="Work email" type="email" autocomplete="email" inputmode="email">
+  <label for="mw-email">Work email</label>
+  <input id="mw-email" name="Work email" type="email" autocomplete="email" inputmode="email">
   <span class="err">Enter a valid work email.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-company">Company</label>
+  <input id="mw-company" name="Company" type="text">
+  <span class="err">Please fill in this field.</span>
+</div><div class="form-field" data-required>
+  <label for="mw-role">Role</label>
+  <input id="mw-role" name="Role" type="text">
+  <span class="err">Please fill in this field.</span>
 </div>
       <div class="consent">
-        <input type="checkbox" id="modal-demo-consent">
-        <label for="modal-demo-consent">I agree that ALGORITMO REGENTE - LDA may process my email to provide demo access and respond to this request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
+        <input type="checkbox" id="modal-walkthrough-consent">
+        <label for="modal-walkthrough-consent">I agree that ALGORITMO REGENTE - LDA may process the information in this form to respond to my request, as described in the <a href="../privacy/">Privacy Policy</a>.</label>
       </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Open the demo</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Request a walkthrough</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
